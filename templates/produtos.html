@@ -1,0 +1,98 @@
+{% extends "admin.html" %}
+{% block page_content %}
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+
+   </div>
+
+<!-- Editable table -->
+<div class="card ">
+    <div class="card-header">
+      <h1 class="w3-jumbo"><b>Produtos</b></h1>
+     <h6 <b>{{msg}}</b></h6>
+  </div>
+  <div class="card-body">
+   <form method="POST" enctype="multipart/form-data">
+ 
+    <!-- Security token -->
+    {% csrf_token %}
+ 
+    <!-- Using the formset -->
+    {{ form.as_p }}
+     
+    <input type="submit" value="Submit">
+</form>
+ <div>
+
+
+
+<!--
+
+   <form action="/buspro/" method="POST">
+    {% csrf_token %}
+        Buscar: <input type="text" id="fname" name="buscar" value="" required>
+        <input type="submit" class="btn btn-success btn-sm" value="Buscar">
+    </form>
+   <br>
+      </div
+-->
+    <div id="table" class="table-editable">
+  
+
+      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"></a></span>
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <thead>
+          <tr>
+            <th class="text-center">Imagem</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Descrição</th>
+            <th class="text-center">Valor</th>
+            <th class="text-center">Atualizar</th>
+            <th class="text-center">Apagar</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for social in projects %}
+          <tr>
+            
+<td>
+  <img src="{{social.image.url}}" lt="..." height="72" width="72"> </div>   
+</td> 
+            <td>
+                <span class="table-atualizar">
+                    <form method="POST" action="{% url 'atuprod' social.pk  %}" onsubmit="troca({{social.ID}})">
+                        {% csrf_token %}
+                      
+                  <input id="contentedit{{social.ID}}" value="{{social.nome}}" name="nome"  >
+            </td>
+            <td>
+                  <input id="contentedit{{social.ID}}" value="{{social.descricao}}" name="descricao">
+            </td>
+            <td>
+                  <input id="contentedit{{social.ID}}" value="{{social.valor}}" name="valor">
+            </td>
+            <td>
+                <input type="submit" class="btn btn-warning btn-rounded btn-sm my-0" value="Atualizar">
+              </form>
+              </span>
+            </td>
+            <td>
+              <span class="table-remove">
+              <form method="POST" action="{% url 'delprod' social.pk  %}" >
+                {% csrf_token %}
+                  <input type="hidden" value="{{social.ID}}" name="title">
+                  <input type="submit" class="btn btn-danger btn-rounded btn-sm my-0" value="Apagar">
+              </form>
+              </span>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable table -->
+
+{% endblock %}

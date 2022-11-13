@@ -1,0 +1,31 @@
+{% extends "baselojas.html" %}
+{% block page_content %}
+  
+
+  <!--section -->
+  
+ <!--section-->
+ <section>
+ <div class="container">
+    <h1>Lojas Parceiras</h1>
+    <div class="row">
+
+        {% for empresa in project %}
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <img class="card-img-top"
+
+            src="{{empresa.image.url}}" width="100" height="200" >
+              <div class="card-body">
+                <h5 class="card-title" > {{empresa.nome }} </h5>
+      
+              </div>
+<a href="https://delivery.rogerio1982.repl.co/{{empresa.id}}" target="_blank">Acessar</a>
+          </div>
+        </div>
+    {% endfor %}
+    </div>
+  </div>
+ </section>
+
+{% endblock %}

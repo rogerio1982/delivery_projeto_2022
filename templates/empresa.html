@@ -1,0 +1,55 @@
+{% extends "admin.html" %}
+{% block page_content %}
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+   
+   </div>
+
+<!-- Editable table -->
+<div class="card ">
+    <div class="card-header">
+      <h1 class="w3-jumbo"><b>Empresa</b></h1>
+     <h6 <b>{{imagem}}</b></h6>
+  </div>
+  <div class="card-body">
+ Logo:<br>
+        <img  src="{{image.url}}" height="102" width="102" ></p>
+<form method="POST" enctype="multipart/form-data">
+ 
+    <!-- Security token -->
+    {% csrf_token %}
+ 
+    <!-- Using the formset -->
+    {{ form.as_p }}
+     
+    <input type="submit" value="Submit">
+</form>
+
+    <!--
+    <form action="/cademp/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        Logo:<br>
+        <img  src="{{image.url}}" ><br>
+
+        Link da logo: <br><input type="text" id="fname" name="endereco" value="{{endereco}}" size="97" required><br>
+        Nome: <br><input type="text" readonly="readonly" id="fname" name="empresa" value="{{empresa}}" size="20" required required><br>
+        Tel: <br><input type="text" id="fname" name="telefone" value="{{telefone}}" size="20" required ><br>
+              
+      <input class="form-control" type="file" name="image">
+
+        <input type="submit" class="btn btn-success btn-sm" value="Salvar">
+    </form>
+    -->
+<br>
+       <div>
+
+   <br>
+      </div
+
+  
+  </div>
+</div>
+<!-- Editable table -->
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "admin.html" %}
+{% block page_content %}
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="showcase">
+     {% if user.is_authenticated %}
+     <h1 class="w3-jumbo"><b>{{msg}} <p> {{user}}</b></h1>
+
+      <div class="w3-bar-block "> 
+ 
+    
+      {% endif %}
+  </div>
+
+
+{% endblock %}

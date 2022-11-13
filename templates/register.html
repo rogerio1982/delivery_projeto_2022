@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<title>Seu delivery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+<body>
+
+
+
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+
+<!--empresas -->
+
+    
+ <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://http2.mlstatic.com/D_NQ_NP_983305-MLB25014070195_082016-W.jpg" alt="Table Setting" width="520" height="600">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+       <h1 class="w3-center">Registrar</h1><br>
+      <h5 class="w3-center"></h5>
+      <p class="w3-large">
+Nova conta 
+        <form method="post" action="{% url 'register' %}">
+          {% csrf_token %} {% for field in form %}
+          <div class="form-group">
+            {{ field.label_tag }}
+            <input
+              type="{% if 'password' in field.label_tag %}password{% else %}text{% endif %}"
+              name="{{ field.html_name }}"
+              class="form-control"
+              maxlength="{% if 'username' in field.label_tag %}150{% endif %}"
+              id="{{ field.id_for_label }}"
+              required
+            />
+          </div>
+          {% if field.errors %} {% for error in field.errors %}
+          <p style="font-size: 13px;">
+            {{ error|escape }}
+          </p>
+          {% endfor %} {% endif %} {% endfor %}
+          <button type="submit" class="btn btn-primary mt-2">Register</button>
+       
+        </form>
+      
+     </div>
+
+
+
+
+ 
+  </div>
+  
+  <hr>
+
+
+  
+  
+<!-- End page content -->
+</div>
+
+
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">Seu delivery</a></p>
+</footer>
+
+</body>
+</html>

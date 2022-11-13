@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+ <!--section-->
+ <section>
+ <div class="container">
+      <h1>{{ produto.nome }}</h1>
+        <div class="row">
+          <div class="col-md-8">
+            <img class="card-img-top" src="{{ produtos.image }}" >
+          </div>
+              <div class="col-md-4">
+                  <h5>Produto</h5>
+                  <p>{{ produtos.nome }}</p>
+                  <br>
+            
+
+                  <div class="row">
+                                            
+                      <a href="{% url 'addCart' produtos.pk  %}" class="btn btn-primary">Comprar</a>
+
+                  </div>
+         </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+<div >
+
+   <h3>{{msg}}</h3>
+
+  
+ <h3>Cadastrar Clientes</h3>
+    <div >          
+    <form action = "/cadcli/" method = "POST">
+      {% csrf_token %}
+      <br><br>
+      <label for="your_name">Nome: </label>
+      <input id="your_name" type="text" name="your_name" required><br>
+      <label for="pagamento">Pagamento:</label>
+       <select name="pagamento" id="pagamento"required>
+        <option value="cartao_deb">Cartão débito</option>
+        <option value="cartao_cre">Cartão crédito</option>
+        <option value="dinheiro">Dinheiro</option>
+        <option value="pix">Pix</option>
+      </select>
+      <br>
+      <label for="your_name">Endereço: </label><br>
+      <textarea id="endereco" name="endereco" rows="4" cols="50"required></textarea><br><br>
+<div class="row">
+      <input type="submit" value="Enviar pedido" class="btn btn-primary">
+      </p>
+        <a href="{% url 'chamaini' %}" class="btn btn-primary" >Voltar</a></p>
+</div>
+    </form>
+
+</div>
+</div>
+
+
+{% endblock %}
+
+
