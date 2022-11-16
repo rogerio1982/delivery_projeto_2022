@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 
 <!--empresas -->
 
-    
+
  <!-- About Section -->
   <div class="w3-row w3-padding-64" id="about">
     <div class="w3-col m6 w3-padding-large w3-hide-small">
@@ -30,10 +30,13 @@ h1, h2, h3, h4, h5, h6 {
     </div>
 
     <div class="w3-col m6 w3-padding-large">
-       <h1 class="w3-center">Registrar</h1><br>
+       <h1 class="w3-center">Crie sua conta agora</h1><br>
+
+
+
       <h5 class="w3-center"></h5>
       <p class="w3-large">
-Nova conta 
+Crie agora sua conta e comece hoje mesmo a faturar.
         <form method="post" action="{% url 'register' %}">
           {% csrf_token %} {% for field in form %}
           <div class="form-group">
@@ -53,22 +56,22 @@ Nova conta
           </p>
           {% endfor %} {% endif %} {% endfor %}
           <button type="submit" class="btn btn-primary mt-2">Register</button>
-       
+
         </form>
-      
+
      </div>
 
 
 
 
- 
+
   </div>
-  
+
   <hr>
 
 
-  
-  
+
+
 <!-- End page content -->
 </div>
 
